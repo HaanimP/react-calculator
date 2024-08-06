@@ -1,0 +1,122 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #E0BBE4, #957DAD); /* Light purple to pastel lavender gradient */
+  font-family: 'Poppins', sans-serif; /* Modern and clean font */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Center the calculator vertically and horizontally */
+  padding: 1rem; /* Padding for smaller screens */
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 6rem); /* Larger button size */
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+  gap: 1rem; /* Increased spacing between buttons */
+  background-color: #FFFFFF; /* White background for the calculator */
+  padding: 2rem; /* Padding inside the calculator */
+  border-radius: 1.5rem; /* Rounded corners for the calculator */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow around the calculator */
+  width: 100%;
+  max-width: 500px; /* Increased max width for larger screens */
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: #D1C4E9; /* Soft pastel purple for buttons */
+  color: #5D5D5D; /* Dark gray for button text */
+  border-radius: 1rem; /* Rounded corners for buttons */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  background-color: #B39DDB; /* Slightly darker purple on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover for emphasis */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover for depth */
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: #F3E5F5; /* Very light purple for the output area */
+  color: #333; /* Darker text color */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 1.5rem; /* Slightly increased padding for better spacing */
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 1rem; /* Rounded corners for the output area */
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+.output .previous-operand {
+  color: #A1A1A1; /* Softer gray for previous operand */
+  font-size: 1.75rem;
+}
+
+.output .current-operand {
+  color: #5D5D5D; /* Darker gray for current operand */
+  font-size: 2.75rem;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) { /* Tablet size */
+  .calculator-grid {
+    grid-template-columns: repeat(4, 8rem); /* Larger button size for better touch targets */
+    grid-template-rows: minmax(7rem, auto) repeat(5, 7rem);
+    padding: 2rem;
+    gap: 1.5rem; /* More spacing between buttons */
+  }
+
+  .calculator-grid > button {
+    font-size: 2.25rem; /* Slightly larger font size */
+    border-radius: 1rem;
+  }
+
+  .output .previous-operand {
+    font-size: 1.75rem; /* Adjusted font size */
+  }
+
+  .output .current-operand {
+    font-size: 3rem; /* Larger font size for current operand */
+  }
+}
+
+@media (max-width: 480px) { /* Phone size */
+  .calculator-grid {
+    grid-template-columns: repeat(4, 4rem);
+    grid-template-rows: minmax(5rem, auto) repeat(5, 4rem);
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .calculator-grid > button {
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .output .previous-operand {
+    font-size: 1rem;
+  }
+
+  .output .current-operand {
+    font-size: 1.75rem;
+  }
+}
